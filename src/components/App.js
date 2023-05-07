@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import toast, { Toaster } from 'react-hot-toast';
 import Section from './Section/Section';
 import ContactList from './ContactList/ContactList';
-import Form from './ContactForm/ContactForm';
+import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 
 export default function App() {
@@ -41,8 +41,8 @@ export default function App() {
     );
   };
 
-  const changeFilter = event => {
-    setFilter(event.currentTarget.value);
+  const changeFilter = e => {
+    setFilter(e.currentTarget.value);
   };
 
   const getVisibleContacts = () => {
@@ -56,7 +56,7 @@ export default function App() {
     <>
       <Toaster />
       <Section title="Phonebook">
-        <Form onSubmit={addContact} />
+        <ContactForm onSubmit={addContact} />
       </Section>
       <Section title="Contacts">
         <Filter value={filter} onChange={changeFilter} />
